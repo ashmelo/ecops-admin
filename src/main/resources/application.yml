@@ -1,0 +1,20 @@
+server:
+  port: 9091
+spring:
+  datasource:
+    name: ecops_admin
+    driverClassName: org.h2.Driver
+    initialize: true
+    url: jdbc:h2:file:~/ecops_admin;DB_CLOSE_ON_EXIT=FALSE;IFEXISTS=FALSE;DB_CLOSE_DELAY=-1;
+
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  main:
+    allow-bean-definition-overriding: true
+
