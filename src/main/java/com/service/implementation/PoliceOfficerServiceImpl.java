@@ -31,6 +31,7 @@ public class PoliceOfficerServiceImpl implements PoliceOfficerService {
                 .joinDate(officerRequest.getJoinDate())
                 .lastName(officerRequest.getLastName())
                 .password(officerRequest.getPassword())
+                .loginId(officerRequest.getLoginId())
                 .sex(officerRequest.getSex())
                 .contact(officerRequest.getContact())
                 .station(stationRepository.getOne(officerRequest.getStationId()))
@@ -43,7 +44,7 @@ public class PoliceOfficerServiceImpl implements PoliceOfficerService {
         PoliceOfficer policeOfficer = officerRepository.findByEmailAndPassword(login,password);
         Algorithm algorithm = Algorithm.HMAC256("tokenSecret");
         String token = JWT.create()
-                .withClaim("id", policeOfficer.getPoliceId())
+                .withClaim("id", policeOfficer.getLoginId())
                 .withClaim("password", policeOfficer.getPassword())
                 .withClaim("contact", policeOfficer.getContact())
                 .sign(algorithm);
