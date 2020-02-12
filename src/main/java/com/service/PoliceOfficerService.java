@@ -13,4 +13,6 @@ public interface PoliceOfficerService {
     TokenResponse getPoliceLoginToken(String login, String password);
 
     OfficerResponse getParticularPoliceOfficer(int id, CrimeStatus crimeType);
+
+    OfficerResponse getParticularPoliceOfficerWithLoginId(String loginId);
 }

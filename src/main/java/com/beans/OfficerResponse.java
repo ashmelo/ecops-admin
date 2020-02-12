@@ -10,5 +10,8 @@ import lombok.Data;
 public class OfficerResponse {
 
     private int id;
+    private String loginId;
     private String name;
+    private String password;
+    private String contact;
 }

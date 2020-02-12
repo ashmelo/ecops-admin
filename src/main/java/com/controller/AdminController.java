@@ -62,4 +62,10 @@ public class AdminController {
     public ResponseEntity<OfficerResponse> getParticularPoliceOfficer(@RequestParam("id") int id, @RequestParam("crimeType") CrimeStatus crimeType) {
         return new ResponseEntity<OfficerResponse>(officerService.getParticularPoliceOfficer(id, crimeType),HttpStatus.OK);
     }
+
+    @GetMapping(value = "/get_police_officer_details", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get Police Officer for particular station id")
+    public ResponseEntity<OfficerResponse> getParticularPoliceOfficerWithLoginId(@RequestParam("loginId") String loginId) {
+        return new ResponseEntity<OfficerResponse>(officerService.getParticularPoliceOfficerWithLoginId(loginId),HttpStatus.OK);
+    }
 }

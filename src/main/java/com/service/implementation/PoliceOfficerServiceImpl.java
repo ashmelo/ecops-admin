@@ -59,4 +59,13 @@ public class PoliceOfficerServiceImpl implements PoliceOfficerService {
                 .name(officer.get(0).getFirstName()+" "+officer.get(0).getLastName()).build();
         return officerResponse;
     }
+
+    @Override
+    public OfficerResponse getParticularPoliceOfficerWithLoginId(String loginId) {
+        PoliceOfficer policeOfficer = officerRepository.findByLoginId(loginId);
+        OfficerResponse officerResponse = OfficerResponse.builder().id(policeOfficer.getPoliceId())
+                .loginId(policeOfficer.getLoginId()).name(policeOfficer.getFirstName()+" "+policeOfficer.getLastName()).contact(policeOfficer.getContact())
+                .password(policeOfficer.getPassword()).build();
+        return officerResponse;
+    }
 }

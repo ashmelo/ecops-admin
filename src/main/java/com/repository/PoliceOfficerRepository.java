@@ -15,4 +15,6 @@ public interface PoliceOfficerRepository extends JpaRepository<PoliceOfficer, In
 
     @Query("select p from PoliceOfficer p where p.station.stationId = :id and p.crimeDepartment = :crimeType")
     List<PoliceOfficer> findByStationIdAndDepartment(int id, CrimeStatus crimeType);
+
+    PoliceOfficer findByLoginId(String loginId);
 }
